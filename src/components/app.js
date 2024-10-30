@@ -21,7 +21,7 @@ const App = () => {
     //Prevent browser from reloading
     e.preventDefault();
 
-    if (text === '') return;
+    if (text === '' || text.trim() === '') { setText(''); return; }
     let todoItem = { id: Itemid, todoText: text }
     setTodos([...todos, todoItem])
     setText('')
@@ -39,7 +39,6 @@ const App = () => {
   //Method to increment completed todos
 
   const checkedHandler = (checked) => {
-    console.log(`Checked handler called with ${checked}`)
     if (checked === true) { setCompleted(compeleted + 1); return; }
     setCompleted(compeleted - 1);
   }
